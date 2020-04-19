@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+package yamcs.protobuf.prometheus;
+
+option java_package = "org.yamcs.prometheus.api";
+option java_outer_classname = "PrometheusProto";
+option java_multiple_files = true;
+
+import "yamcs/api/annotations.proto";
+import "yamcs/api/httpbody.proto";
+ 
+service PrometheusApi {
+
+  // Exports metrics in Prometheus text format
+  rpc GetMetrics(GetMetricsRequest) returns (yamcs.api.HttpBody) {
+    option (yamcs.api.route) = {
+      get: "/api/prometheus/metrics"
+    };
+  }
+}
+
+message GetMetricsRequest {
+  repeated string name = 1;
+}
