@@ -31,7 +31,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <yamcsVersion>4.10.9-SNAPSHOT</yamcsVersion>
+    <yamcsVersion>4.10.9</yamcsVersion>
     <prometheusClientVersion>0.8.1</prometheusClientVersion>
   </properties>
 
@@ -39,6 +39,11 @@
     <dependency>
       <groupId>io.prometheus</groupId>
       <artifactId>simpleclient_common</artifactId>
+      <version>${prometheusClientVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.prometheus</groupId>
+      <artifactId>simpleclient_dropwizard</artifactId>
       <version>${prometheusClientVersion}</version>
     </dependency>
     <dependency>

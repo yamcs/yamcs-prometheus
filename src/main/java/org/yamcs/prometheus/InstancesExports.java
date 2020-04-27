@@ -20,12 +20,12 @@ public class InstancesExports extends Collector {
         List<MetricFamilySamples> sampleFamilies = new ArrayList<>();
 
         sampleFamilies.add(new GaugeMetricFamily(
-                "instances_current",
+                "yamcs_instances_current",
                 "Current amount of Yamcs instances",
                 YamcsServer.getInstances().size()));
 
         GaugeMetricFamily stateFamily = new GaugeMetricFamily(
-                "instances_state",
+                "yamcs_instances_state",
                 "Current count of instances by state",
                 Collections.singletonList("state"));
 
