@@ -1,0 +1,503 @@
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 21.494824
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.58879792074E9
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 153.0
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 10240.0
+# HELP jvm_classes_loaded The number of classes that are currently loaded in the JVM
+# TYPE jvm_classes_loaded gauge
+jvm_classes_loaded 7222.0
+# HELP jvm_classes_loaded_total The total number of classes that have been loaded since the JVM has started execution
+# TYPE jvm_classes_loaded_total counter
+jvm_classes_loaded_total 7222.0
+# HELP jvm_classes_unloaded_total The total number of classes that have been unloaded since the JVM has started execution
+# TYPE jvm_classes_unloaded_total counter
+jvm_classes_unloaded_total 0.0
+# HELP jvm_gc_collection_seconds Time spent in a given JVM garbage collector in seconds.
+# TYPE jvm_gc_collection_seconds summary
+jvm_gc_collection_seconds_count{gc="G1 Young Generation",} 7.0
+jvm_gc_collection_seconds_sum{gc="G1 Young Generation",} 0.115
+jvm_gc_collection_seconds_count{gc="G1 Old Generation",} 0.0
+jvm_gc_collection_seconds_sum{gc="G1 Old Generation",} 0.0
+# HELP yamcs_api_requests_total Total requests per API method
+# TYPE yamcs_api_requests_total counter
+yamcs_api_requests_total{method="EditAlarm",service="AlarmsApi",} 0.0
+yamcs_api_requests_total{method="ListAlarms",service="AlarmsApi",} 0.0
+yamcs_api_requests_total{method="ListParameterAlarms",service="AlarmsApi",} 0.0
+yamcs_api_requests_total{method="ListProcessorAlarms",service="AlarmsApi",} 0.0
+yamcs_api_requests_total{method="CreateBucket",service="BucketsApi",} 0.0
+yamcs_api_requests_total{method="DeleteBucket",service="BucketsApi",} 0.0
+yamcs_api_requests_total{method="DeleteObject",service="BucketsApi",} 0.0
+yamcs_api_requests_total{method="GetObject",service="BucketsApi",} 0.0
+yamcs_api_requests_total{method="ListBuckets",service="BucketsApi",} 0.0
+yamcs_api_requests_total{method="ListObjects",service="BucketsApi",} 0.0
+yamcs_api_requests_total{method="UploadObject",service="BucketsApi",} 0.0
+yamcs_api_requests_total{method="CreateTransfer",service="CfdpApi",} 0.0
+yamcs_api_requests_total{method="GetTransfer",service="CfdpApi",} 0.0
+yamcs_api_requests_total{method="ListTransfers",service="CfdpApi",} 0.0
+yamcs_api_requests_total{method="UpdateTransfer",service="CfdpApi",} 0.0
+yamcs_api_requests_total{method="DeleteClearance",service="ClearanceApi",} 0.0
+yamcs_api_requests_total{method="ListClearances",service="ClearanceApi",} 0.0
+yamcs_api_requests_total{method="UpdateClearance",service="ClearanceApi",} 0.0
+yamcs_api_requests_total{method="GetClient",service="ClientsApi",} 0.0
+yamcs_api_requests_total{method="ListClients",service="ClientsApi",} 0.0
+yamcs_api_requests_total{method="UpdateClient",service="ClientsApi",} 0.0
+yamcs_api_requests_total{method="GetCommand",service="CommandHistoryApi",} 0.0
+yamcs_api_requests_total{method="ListCommands",service="CommandHistoryApi",} 0.0
+yamcs_api_requests_total{method="StreamCommands",service="CommandHistoryApi",} 0.0
+yamcs_api_requests_total{method="Disable",service="Cop1Api",} 0.0
+yamcs_api_requests_total{method="GetConfig",service="Cop1Api",} 0.0
+yamcs_api_requests_total{method="GetStatus",service="Cop1Api",} 0.0
+yamcs_api_requests_total{method="Initialize",service="Cop1Api",} 0.0
+yamcs_api_requests_total{method="Resume",service="Cop1Api",} 0.0
+yamcs_api_requests_total{method="SetConfig",service="Cop1Api",} 0.0
+yamcs_api_requests_total{method="CreateEvent",service="EventsApi",} 0.0
+yamcs_api_requests_total{method="ExportEvents",service="EventsApi",} 0.0
+yamcs_api_requests_total{method="ListEventSources",service="EventsApi",} 0.0
+yamcs_api_requests_total{method="ListEvents",service="EventsApi",} 0.0
+yamcs_api_requests_total{method="StreamEvents",service="EventsApi",} 0.0
+yamcs_api_requests_total{method="CloseConnection",service="GeneralApi",} 0.0
+yamcs_api_requests_total{method="GetGeneralInfo",service="GeneralApi",} 0.0
+yamcs_api_requests_total{method="ListClientConnections",service="GeneralApi",} 0.0
+yamcs_api_requests_total{method="ListRoutes",service="GeneralApi",} 0.0
+yamcs_api_requests_total{method="CreateGroup",service="IamApi",} 0.0
+yamcs_api_requests_total{method="CreateServiceAccount",service="IamApi",} 0.0
+yamcs_api_requests_total{method="CreateUser",service="IamApi",} 0.0
+yamcs_api_requests_total{method="DeleteGroup",service="IamApi",} 0.0
+yamcs_api_requests_total{method="DeleteIdentity",service="IamApi",} 0.0
+yamcs_api_requests_total{method="DeleteRoleAssignment",service="IamApi",} 0.0
+yamcs_api_requests_total{method="DeleteServiceAccount",service="IamApi",} 0.0
+yamcs_api_requests_total{method="GetGroup",service="IamApi",} 0.0
+yamcs_api_requests_total{method="GetOwnUser",service="IamApi",} 1.0
+yamcs_api_requests_total{method="GetRole",service="IamApi",} 0.0
+yamcs_api_requests_total{method="GetServiceAccount",service="IamApi",} 0.0
+yamcs_api_requests_total{method="GetUser",service="IamApi",} 0.0
+yamcs_api_requests_total{method="ListGroups",service="IamApi",} 0.0
+yamcs_api_requests_total{method="ListPrivileges",service="IamApi",} 0.0
+yamcs_api_requests_total{method="ListRoles",service="IamApi",} 0.0
+yamcs_api_requests_total{method="ListServiceAccounts",service="IamApi",} 0.0
+yamcs_api_requests_total{method="ListUsers",service="IamApi",} 0.0
+yamcs_api_requests_total{method="UpdateGroup",service="IamApi",} 0.0
+yamcs_api_requests_total{method="UpdateUser",service="IamApi",} 0.0
+yamcs_api_requests_total{method="ListCommandHistoryIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="ListCompletenessIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="ListEventIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="ListPacketIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="ListParameterIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="RebuildCcsdsIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="StreamCommandIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="StreamCompletenessIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="StreamEventIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="StreamIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="StreamPacketIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="StreamParameterIndex",service="IndexApi",} 0.0
+yamcs_api_requests_total{method="CreateInstance",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="GetInstance",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="GetInstanceTemplate",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="GetLink",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="GetService",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="GetSystemInfo",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="ListInstanceTemplates",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="ListInstances",service="ManagementApi",} 1.0
+yamcs_api_requests_total{method="ListLinks",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="ListServices",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="RestartInstance",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="StartInstance",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="StartService",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="StopInstance",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="StopService",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="UpdateLink",service="ManagementApi",} 0.0
+yamcs_api_requests_total{method="BatchGetParameters",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="ExportJavaMissionDatabase",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="GetAlgorithm",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="GetCommand",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="GetContainer",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="GetMissionDatabase",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="GetParameter",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="GetParameterType",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="GetSpaceSystem",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="ListAlgorithms",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="ListCommands",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="ListContainers",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="ListParameterTypes",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="ListParameters",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="ListSpaceSystems",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="UpdateAlgorithm",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="UpdateParameter",service="MdbApi",} 0.0
+yamcs_api_requests_total{method="ExportPackets",service="PacketsApi",} 0.0
+yamcs_api_requests_total{method="GetPacket",service="PacketsApi",} 0.0
+yamcs_api_requests_total{method="ListPacketNames",service="PacketsApi",} 0.0
+yamcs_api_requests_total{method="ListPackets",service="PacketsApi",} 0.0
+yamcs_api_requests_total{method="StreamPackets",service="PacketsApi",} 0.0
+yamcs_api_requests_total{method="DeletePartitions",service="ParameterArchiveApi",} 0.0
+yamcs_api_requests_total{method="GetArchivedParameterInfo",service="ParameterArchiveApi",} 0.0
+yamcs_api_requests_total{method="GetParameterRanges",service="ParameterArchiveApi",} 0.0
+yamcs_api_requests_total{method="GetParameterSamples",service="ParameterArchiveApi",} 0.0
+yamcs_api_requests_total{method="ListParameterHistory",service="ParameterArchiveApi",} 0.0
+yamcs_api_requests_total{method="RebuildRange",service="ParameterArchiveApi",} 0.0
+yamcs_api_requests_total{method="BatchGetParameterValues",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="BatchSetParameterValues",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="CreateProcessor",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="DeleteProcessor",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="EditProcessor",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="GetParameterValue",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="GetProcessor",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="IssueCommand",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="ListProcessorTypes",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="ListProcessors",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="SetParameterValue",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="UpdateCommandHistory",service="ProcessingApi",} 0.0
+yamcs_api_requests_total{method="GetMetrics",service="PrometheusApi",} 2.0
+yamcs_api_requests_total{method="GetQueue",service="QueueApi",} 0.0
+yamcs_api_requests_total{method="ListQueueEntries",service="QueueApi",} 0.0
+yamcs_api_requests_total{method="ListQueues",service="QueueApi",} 0.0
+yamcs_api_requests_total{method="UpdateQueue",service="QueueApi",} 0.0
+yamcs_api_requests_total{method="UpdateQueueEntry",service="QueueApi",} 0.0
+yamcs_api_requests_total{method="BackupDatabase",service="RocksDbApi",} 0.0
+yamcs_api_requests_total{method="CompactDatabase",service="RocksDbApi",} 0.0
+yamcs_api_requests_total{method="DescribeDatabase",service="RocksDbApi",} 0.0
+yamcs_api_requests_total{method="DescribeRocksDb",service="RocksDbApi",} 0.0
+yamcs_api_requests_total{method="ListDatabases",service="RocksDbApi",} 0.0
+yamcs_api_requests_total{method="ListTablespaces",service="RocksDbApi",} 0.0
+yamcs_api_requests_total{method="ExportParameterValues",service="StreamArchiveApi",} 0.0
+yamcs_api_requests_total{method="GetParameterSamples",service="StreamArchiveApi",} 0.0
+yamcs_api_requests_total{method="ListParameterGroups",service="StreamArchiveApi",} 0.0
+yamcs_api_requests_total{method="ListParameterHistory",service="StreamArchiveApi",} 0.0
+yamcs_api_requests_total{method="StreamParameterValues",service="StreamArchiveApi",} 0.0
+yamcs_api_requests_total{method="ExecuteSql",service="TableApi",} 0.0
+yamcs_api_requests_total{method="GetStream",service="TableApi",} 0.0
+yamcs_api_requests_total{method="GetTable",service="TableApi",} 0.0
+yamcs_api_requests_total{method="GetTableData",service="TableApi",} 0.0
+yamcs_api_requests_total{method="ListStreams",service="TableApi",} 0.0
+yamcs_api_requests_total{method="ListTables",service="TableApi",} 0.0
+yamcs_api_requests_total{method="ReadRows",service="TableApi",} 0.0
+yamcs_api_requests_total{method="WriteRows",service="TableApi",} 0.0
+yamcs_api_requests_total{method="CreateTag",service="TagApi",} 0.0
+yamcs_api_requests_total{method="DeleteTag",service="TagApi",} 0.0
+yamcs_api_requests_total{method="GetTag",service="TagApi",} 0.0
+yamcs_api_requests_total{method="ListTags",service="TagApi",} 0.0
+yamcs_api_requests_total{method="UpdateTag",service="TagApi",} 0.0
+yamcs_api_requests_total{method="GetLeapSeconds",service="TimeApi",} 0.0
+yamcs_api_requests_total{method="SetTime",service="TimeApi",} 0.0
+# HELP yamcs_api_errors_total Total errors per API method
+# TYPE yamcs_api_errors_total counter
+yamcs_api_errors_total{method="EditAlarm",service="AlarmsApi",} 0.0
+yamcs_api_errors_total{method="ListAlarms",service="AlarmsApi",} 0.0
+yamcs_api_errors_total{method="ListParameterAlarms",service="AlarmsApi",} 0.0
+yamcs_api_errors_total{method="ListProcessorAlarms",service="AlarmsApi",} 0.0
+yamcs_api_errors_total{method="CreateBucket",service="BucketsApi",} 0.0
+yamcs_api_errors_total{method="DeleteBucket",service="BucketsApi",} 0.0
+yamcs_api_errors_total{method="DeleteObject",service="BucketsApi",} 0.0
+yamcs_api_errors_total{method="GetObject",service="BucketsApi",} 0.0
+yamcs_api_errors_total{method="ListBuckets",service="BucketsApi",} 0.0
+yamcs_api_errors_total{method="ListObjects",service="BucketsApi",} 0.0
+yamcs_api_errors_total{method="UploadObject",service="BucketsApi",} 0.0
+yamcs_api_errors_total{method="CreateTransfer",service="CfdpApi",} 0.0
+yamcs_api_errors_total{method="GetTransfer",service="CfdpApi",} 0.0
+yamcs_api_errors_total{method="ListTransfers",service="CfdpApi",} 0.0
+yamcs_api_errors_total{method="UpdateTransfer",service="CfdpApi",} 0.0
+yamcs_api_errors_total{method="DeleteClearance",service="ClearanceApi",} 0.0
+yamcs_api_errors_total{method="ListClearances",service="ClearanceApi",} 0.0
+yamcs_api_errors_total{method="UpdateClearance",service="ClearanceApi",} 0.0
+yamcs_api_errors_total{method="GetClient",service="ClientsApi",} 0.0
+yamcs_api_errors_total{method="ListClients",service="ClientsApi",} 0.0
+yamcs_api_errors_total{method="UpdateClient",service="ClientsApi",} 0.0
+yamcs_api_errors_total{method="GetCommand",service="CommandHistoryApi",} 0.0
+yamcs_api_errors_total{method="ListCommands",service="CommandHistoryApi",} 0.0
+yamcs_api_errors_total{method="StreamCommands",service="CommandHistoryApi",} 0.0
+yamcs_api_errors_total{method="Disable",service="Cop1Api",} 0.0
+yamcs_api_errors_total{method="GetConfig",service="Cop1Api",} 0.0
+yamcs_api_errors_total{method="GetStatus",service="Cop1Api",} 0.0
+yamcs_api_errors_total{method="Initialize",service="Cop1Api",} 0.0
+yamcs_api_errors_total{method="Resume",service="Cop1Api",} 0.0
+yamcs_api_errors_total{method="SetConfig",service="Cop1Api",} 0.0
+yamcs_api_errors_total{method="CreateEvent",service="EventsApi",} 0.0
+yamcs_api_errors_total{method="ExportEvents",service="EventsApi",} 0.0
+yamcs_api_errors_total{method="ListEventSources",service="EventsApi",} 0.0
+yamcs_api_errors_total{method="ListEvents",service="EventsApi",} 0.0
+yamcs_api_errors_total{method="StreamEvents",service="EventsApi",} 0.0
+yamcs_api_errors_total{method="CloseConnection",service="GeneralApi",} 0.0
+yamcs_api_errors_total{method="GetGeneralInfo",service="GeneralApi",} 0.0
+yamcs_api_errors_total{method="ListClientConnections",service="GeneralApi",} 0.0
+yamcs_api_errors_total{method="ListRoutes",service="GeneralApi",} 0.0
+yamcs_api_errors_total{method="CreateGroup",service="IamApi",} 0.0
+yamcs_api_errors_total{method="CreateServiceAccount",service="IamApi",} 0.0
+yamcs_api_errors_total{method="CreateUser",service="IamApi",} 0.0
+yamcs_api_errors_total{method="DeleteGroup",service="IamApi",} 0.0
+yamcs_api_errors_total{method="DeleteIdentity",service="IamApi",} 0.0
+yamcs_api_errors_total{method="DeleteRoleAssignment",service="IamApi",} 0.0
+yamcs_api_errors_total{method="DeleteServiceAccount",service="IamApi",} 0.0
+yamcs_api_errors_total{method="GetGroup",service="IamApi",} 0.0
+yamcs_api_errors_total{method="GetOwnUser",service="IamApi",} 0.0
+yamcs_api_errors_total{method="GetRole",service="IamApi",} 0.0
+yamcs_api_errors_total{method="GetServiceAccount",service="IamApi",} 0.0
+yamcs_api_errors_total{method="GetUser",service="IamApi",} 0.0
+yamcs_api_errors_total{method="ListGroups",service="IamApi",} 0.0
+yamcs_api_errors_total{method="ListPrivileges",service="IamApi",} 0.0
+yamcs_api_errors_total{method="ListRoles",service="IamApi",} 0.0
+yamcs_api_errors_total{method="ListServiceAccounts",service="IamApi",} 0.0
+yamcs_api_errors_total{method="ListUsers",service="IamApi",} 0.0
+yamcs_api_errors_total{method="UpdateGroup",service="IamApi",} 0.0
+yamcs_api_errors_total{method="UpdateUser",service="IamApi",} 0.0
+yamcs_api_errors_total{method="ListCommandHistoryIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="ListCompletenessIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="ListEventIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="ListPacketIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="ListParameterIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="RebuildCcsdsIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="StreamCommandIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="StreamCompletenessIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="StreamEventIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="StreamIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="StreamPacketIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="StreamParameterIndex",service="IndexApi",} 0.0
+yamcs_api_errors_total{method="CreateInstance",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="GetInstance",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="GetInstanceTemplate",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="GetLink",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="GetService",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="GetSystemInfo",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="ListInstanceTemplates",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="ListInstances",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="ListLinks",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="ListServices",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="RestartInstance",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="StartInstance",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="StartService",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="StopInstance",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="StopService",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="UpdateLink",service="ManagementApi",} 0.0
+yamcs_api_errors_total{method="BatchGetParameters",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="ExportJavaMissionDatabase",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="GetAlgorithm",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="GetCommand",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="GetContainer",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="GetMissionDatabase",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="GetParameter",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="GetParameterType",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="GetSpaceSystem",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="ListAlgorithms",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="ListCommands",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="ListContainers",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="ListParameterTypes",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="ListParameters",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="ListSpaceSystems",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="UpdateAlgorithm",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="UpdateParameter",service="MdbApi",} 0.0
+yamcs_api_errors_total{method="ExportPackets",service="PacketsApi",} 0.0
+yamcs_api_errors_total{method="GetPacket",service="PacketsApi",} 0.0
+yamcs_api_errors_total{method="ListPacketNames",service="PacketsApi",} 0.0
+yamcs_api_errors_total{method="ListPackets",service="PacketsApi",} 0.0
+yamcs_api_errors_total{method="StreamPackets",service="PacketsApi",} 0.0
+yamcs_api_errors_total{method="DeletePartitions",service="ParameterArchiveApi",} 0.0
+yamcs_api_errors_total{method="GetArchivedParameterInfo",service="ParameterArchiveApi",} 0.0
+yamcs_api_errors_total{method="GetParameterRanges",service="ParameterArchiveApi",} 0.0
+yamcs_api_errors_total{method="GetParameterSamples",service="ParameterArchiveApi",} 0.0
+yamcs_api_errors_total{method="ListParameterHistory",service="ParameterArchiveApi",} 0.0
+yamcs_api_errors_total{method="RebuildRange",service="ParameterArchiveApi",} 0.0
+yamcs_api_errors_total{method="BatchGetParameterValues",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="BatchSetParameterValues",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="CreateProcessor",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="DeleteProcessor",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="EditProcessor",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="GetParameterValue",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="GetProcessor",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="IssueCommand",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="ListProcessorTypes",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="ListProcessors",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="SetParameterValue",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="UpdateCommandHistory",service="ProcessingApi",} 0.0
+yamcs_api_errors_total{method="GetMetrics",service="PrometheusApi",} 0.0
+yamcs_api_errors_total{method="GetQueue",service="QueueApi",} 0.0
+yamcs_api_errors_total{method="ListQueueEntries",service="QueueApi",} 0.0
+yamcs_api_errors_total{method="ListQueues",service="QueueApi",} 0.0
+yamcs_api_errors_total{method="UpdateQueue",service="QueueApi",} 0.0
+yamcs_api_errors_total{method="UpdateQueueEntry",service="QueueApi",} 0.0
+yamcs_api_errors_total{method="BackupDatabase",service="RocksDbApi",} 0.0
+yamcs_api_errors_total{method="CompactDatabase",service="RocksDbApi",} 0.0
+yamcs_api_errors_total{method="DescribeDatabase",service="RocksDbApi",} 0.0
+yamcs_api_errors_total{method="DescribeRocksDb",service="RocksDbApi",} 0.0
+yamcs_api_errors_total{method="ListDatabases",service="RocksDbApi",} 0.0
+yamcs_api_errors_total{method="ListTablespaces",service="RocksDbApi",} 0.0
+yamcs_api_errors_total{method="ExportParameterValues",service="StreamArchiveApi",} 0.0
+yamcs_api_errors_total{method="GetParameterSamples",service="StreamArchiveApi",} 0.0
+yamcs_api_errors_total{method="ListParameterGroups",service="StreamArchiveApi",} 0.0
+yamcs_api_errors_total{method="ListParameterHistory",service="StreamArchiveApi",} 0.0
+yamcs_api_errors_total{method="StreamParameterValues",service="StreamArchiveApi",} 0.0
+yamcs_api_errors_total{method="ExecuteSql",service="TableApi",} 0.0
+yamcs_api_errors_total{method="GetStream",service="TableApi",} 0.0
+yamcs_api_errors_total{method="GetTable",service="TableApi",} 0.0
+yamcs_api_errors_total{method="GetTableData",service="TableApi",} 0.0
+yamcs_api_errors_total{method="ListStreams",service="TableApi",} 0.0
+yamcs_api_errors_total{method="ListTables",service="TableApi",} 0.0
+yamcs_api_errors_total{method="ReadRows",service="TableApi",} 0.0
+yamcs_api_errors_total{method="WriteRows",service="TableApi",} 0.0
+yamcs_api_errors_total{method="CreateTag",service="TagApi",} 0.0
+yamcs_api_errors_total{method="DeleteTag",service="TagApi",} 0.0
+yamcs_api_errors_total{method="GetTag",service="TagApi",} 0.0
+yamcs_api_errors_total{method="ListTags",service="TagApi",} 0.0
+yamcs_api_errors_total{method="UpdateTag",service="TagApi",} 0.0
+yamcs_api_errors_total{method="GetLeapSeconds",service="TimeApi",} 0.0
+yamcs_api_errors_total{method="SetTime",service="TimeApi",} 0.0
+# HELP yamcs_links_in_total Number of received items since Yamcs has started (e.g. packets)
+# TYPE yamcs_links_in_total counter
+yamcs_links_in_total{instance="simulator",link="tm_realtime",} 0.0
+yamcs_links_in_total{instance="simulator",link="tm2_realtime",} 0.0
+yamcs_links_in_total{instance="simulator",link="tm_dump",} 0.0
+yamcs_links_in_total{instance="simulator",link="tc_sim",} 0.0
+yamcs_links_in_total{instance="simulator",link="UDP_FRAME_OUT.vc0",} 0.0
+yamcs_links_in_total{instance="simulator",link="UDP_FRAME_OUT",} 0.0
+yamcs_links_in_total{instance="simulator",link="TSE",} 0.0
+yamcs_links_in_total{instance="simulator",link="UDP_FRAME_IN.vc0",} 1634.0
+yamcs_links_in_total{instance="simulator",link="UDP_FRAME_IN.vc1",} 182.0
+yamcs_links_in_total{instance="simulator",link="UDP_FRAME_IN.vc2",} 0.0
+yamcs_links_in_total{instance="simulator",link="UDP_FRAME_IN",} 1809.0
+# HELP yamcs_links_out_total Number of sent items since Yamcs has started (e.g. telecommand packets)
+# TYPE yamcs_links_out_total counter
+yamcs_links_out_total{instance="simulator",link="tm_realtime",} 0.0
+yamcs_links_out_total{instance="simulator",link="tm2_realtime",} 0.0
+yamcs_links_out_total{instance="simulator",link="tm_dump",} 0.0
+yamcs_links_out_total{instance="simulator",link="tc_sim",} 0.0
+yamcs_links_out_total{instance="simulator",link="UDP_FRAME_OUT.vc0",} 0.0
+yamcs_links_out_total{instance="simulator",link="UDP_FRAME_OUT",} 0.0
+yamcs_links_out_total{instance="simulator",link="TSE",} 0.0
+yamcs_links_out_total{instance="simulator",link="UDP_FRAME_IN.vc0",} 0.0
+yamcs_links_out_total{instance="simulator",link="UDP_FRAME_IN.vc1",} 0.0
+yamcs_links_out_total{instance="simulator",link="UDP_FRAME_IN.vc2",} 0.0
+yamcs_links_out_total{instance="simulator",link="UDP_FRAME_IN",} 0.0
+# HELP yamcs_processor_receive_packets_total Processed packets since Yamcs has started
+# TYPE yamcs_processor_receive_packets_total counter
+yamcs_processor_receive_packets_total{instance="simulator",processor="realtime",packet="/YSS/SIMULATOR/tm2_container",} 183.0
+yamcs_processor_receive_packets_total{instance="simulator",processor="realtime",packet="/YSS/SIMULATOR/DHS",} 183.0
+yamcs_processor_receive_packets_total{instance="simulator",processor="realtime",packet="/YSS/SIMULATOR/EPS",} 183.0
+yamcs_processor_receive_packets_total{instance="simulator",processor="realtime",packet="/YSS/SIMULATOR/FlightData",} 911.0
+yamcs_processor_receive_packets_total{instance="simulator",processor="realtime",packet="/YSS/SIMULATOR/RCS",} 183.0
+yamcs_processor_receive_packets_total{instance="simulator",processor="realtime",packet="/YSS/SIMULATOR/Power",} 183.0
+# HELP jvm_memory_bytes_used Used bytes of a given JVM memory area.
+# TYPE jvm_memory_bytes_used gauge
+jvm_memory_bytes_used{area="heap",} 9.821012E7
+jvm_memory_bytes_used{area="nonheap",} 6.8108536E7
+# HELP jvm_memory_bytes_committed Committed (bytes) of a given JVM memory area.
+# TYPE jvm_memory_bytes_committed gauge
+jvm_memory_bytes_committed{area="heap",} 1.34217728E8
+jvm_memory_bytes_committed{area="nonheap",} 7.1852032E7
+# HELP jvm_memory_bytes_max Max (bytes) of a given JVM memory area.
+# TYPE jvm_memory_bytes_max gauge
+jvm_memory_bytes_max{area="heap",} 2.147483648E9
+jvm_memory_bytes_max{area="nonheap",} -1.0
+# HELP jvm_memory_bytes_init Initial bytes of a given JVM memory area.
+# TYPE jvm_memory_bytes_init gauge
+jvm_memory_bytes_init{area="heap",} 1.34217728E8
+jvm_memory_bytes_init{area="nonheap",} 7667712.0
+# HELP jvm_memory_pool_bytes_used Used bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_bytes_used gauge
+jvm_memory_pool_bytes_used{pool="CodeHeap 'non-nmethods'",} 1268096.0
+jvm_memory_pool_bytes_used{pool="Metaspace",} 4.8098176E7
+jvm_memory_pool_bytes_used{pool="CodeHeap 'profiled nmethods'",} 1.074368E7
+jvm_memory_pool_bytes_used{pool="Compressed Class Space",} 5269752.0
+jvm_memory_pool_bytes_used{pool="G1 Eden Space",} 4.194304E7
+jvm_memory_pool_bytes_used{pool="G1 Old Gen",} 4.8927048E7
+jvm_memory_pool_bytes_used{pool="G1 Survivor Space",} 7340032.0
+jvm_memory_pool_bytes_used{pool="CodeHeap 'non-profiled nmethods'",} 2728832.0
+# HELP jvm_memory_pool_bytes_committed Committed bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_bytes_committed gauge
+jvm_memory_pool_bytes_committed{pool="CodeHeap 'non-nmethods'",} 2555904.0
+jvm_memory_pool_bytes_committed{pool="Metaspace",} 4.9754112E7
+jvm_memory_pool_bytes_committed{pool="CodeHeap 'profiled nmethods'",} 1.081344E7
+jvm_memory_pool_bytes_committed{pool="Compressed Class Space",} 5976064.0
+jvm_memory_pool_bytes_committed{pool="G1 Eden Space",} 4.8234496E7
+jvm_memory_pool_bytes_committed{pool="G1 Old Gen",} 7.86432E7
+jvm_memory_pool_bytes_committed{pool="G1 Survivor Space",} 7340032.0
+jvm_memory_pool_bytes_committed{pool="CodeHeap 'non-profiled nmethods'",} 2752512.0
+# HELP jvm_memory_pool_bytes_max Max bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_bytes_max gauge
+jvm_memory_pool_bytes_max{pool="CodeHeap 'non-nmethods'",} 5832704.0
+jvm_memory_pool_bytes_max{pool="Metaspace",} -1.0
+jvm_memory_pool_bytes_max{pool="CodeHeap 'profiled nmethods'",} 1.22912768E8
+jvm_memory_pool_bytes_max{pool="Compressed Class Space",} 1.073741824E9
+jvm_memory_pool_bytes_max{pool="G1 Eden Space",} -1.0
+jvm_memory_pool_bytes_max{pool="G1 Old Gen",} 2.147483648E9
+jvm_memory_pool_bytes_max{pool="G1 Survivor Space",} -1.0
+jvm_memory_pool_bytes_max{pool="CodeHeap 'non-profiled nmethods'",} 1.22912768E8
+# HELP jvm_memory_pool_bytes_init Initial bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_bytes_init gauge
+jvm_memory_pool_bytes_init{pool="CodeHeap 'non-nmethods'",} 2555904.0
+jvm_memory_pool_bytes_init{pool="Metaspace",} 0.0
+jvm_memory_pool_bytes_init{pool="CodeHeap 'profiled nmethods'",} 2555904.0
+jvm_memory_pool_bytes_init{pool="Compressed Class Space",} 0.0
+jvm_memory_pool_bytes_init{pool="G1 Eden Space",} 1.572864E7
+jvm_memory_pool_bytes_init{pool="G1 Old Gen",} 1.18489088E8
+jvm_memory_pool_bytes_init{pool="G1 Survivor Space",} 0.0
+jvm_memory_pool_bytes_init{pool="CodeHeap 'non-profiled nmethods'",} 2555904.0
+# HELP jvm_threads_current Current thread count of a JVM
+# TYPE jvm_threads_current gauge
+jvm_threads_current 35.0
+# HELP jvm_threads_daemon Daemon thread count of a JVM
+# TYPE jvm_threads_daemon gauge
+jvm_threads_daemon 8.0
+# HELP jvm_threads_peak Peak thread count of a JVM
+# TYPE jvm_threads_peak gauge
+jvm_threads_peak 35.0
+# HELP jvm_threads_started_total Started thread count of a JVM
+# TYPE jvm_threads_started_total counter
+jvm_threads_started_total 36.0
+# HELP jvm_threads_deadlocked Cycles of JVM-threads that are in deadlock waiting to acquire object monitors or ownable synchronizers
+# TYPE jvm_threads_deadlocked gauge
+jvm_threads_deadlocked 0.0
+# HELP jvm_threads_deadlocked_monitor Cycles of JVM-threads that are in deadlock waiting to acquire object monitors
+# TYPE jvm_threads_deadlocked_monitor gauge
+jvm_threads_deadlocked_monitor 0.0
+# HELP jvm_threads_state Current count of threads by state
+# TYPE jvm_threads_state gauge
+jvm_threads_state{state="RUNNABLE",} 20.0
+jvm_threads_state{state="TERMINATED",} 0.0
+jvm_threads_state{state="NEW",} 0.0
+jvm_threads_state{state="BLOCKED",} 0.0
+jvm_threads_state{state="TIMED_WAITING",} 12.0
+jvm_threads_state{state="WAITING",} 3.0
+# HELP jvm_memory_pool_allocated_bytes_total Total bytes allocated in a given JVM memory pool. Only updated after GC, not continuously.
+# TYPE jvm_memory_pool_allocated_bytes_total counter
+jvm_memory_pool_allocated_bytes_total{pool="CodeHeap 'profiled nmethods'",} 8667904.0
+jvm_memory_pool_allocated_bytes_total{pool="G1 Old Gen",} 3.2149832E7
+jvm_memory_pool_allocated_bytes_total{pool="G1 Eden Space",} 5.0331648E7
+jvm_memory_pool_allocated_bytes_total{pool="CodeHeap 'non-profiled nmethods'",} 1981696.0
+jvm_memory_pool_allocated_bytes_total{pool="G1 Survivor Space",} 7340032.0
+jvm_memory_pool_allocated_bytes_total{pool="Compressed Class Space",} 5122792.0
+jvm_memory_pool_allocated_bytes_total{pool="Metaspace",} 4.6231112E7
+jvm_memory_pool_allocated_bytes_total{pool="CodeHeap 'non-nmethods'",} 1263616.0
+# HELP jvm_buffer_pool_used_bytes Used bytes of a given JVM buffer pool.
+# TYPE jvm_buffer_pool_used_bytes gauge
+jvm_buffer_pool_used_bytes{pool="mapped",} 0.0
+jvm_buffer_pool_used_bytes{pool="direct",} 1.3421908E8
+# HELP jvm_buffer_pool_capacity_bytes Bytes capacity of a given JVM buffer pool.
+# TYPE jvm_buffer_pool_capacity_bytes gauge
+jvm_buffer_pool_capacity_bytes{pool="mapped",} 0.0
+jvm_buffer_pool_capacity_bytes{pool="direct",} 1.34219079E8
+# HELP jvm_buffer_pool_used_buffers Used buffers of a given JVM buffer pool.
+# TYPE jvm_buffer_pool_used_buffers gauge
+jvm_buffer_pool_used_buffers{pool="mapped",} 0.0
+jvm_buffer_pool_used_buffers{pool="direct",} 12.0
+# HELP yamcs_instances_current Current amount of Yamcs instances
+# TYPE yamcs_instances_current gauge
+yamcs_instances_current 1.0
+# HELP yamcs_instances_state Current count of instances by state
+# TYPE yamcs_instances_state gauge
+yamcs_instances_state{state="INITIALIZED",} 0.0
+yamcs_instances_state{state="FAILED",} 0.0
+yamcs_instances_state{state="STARTING",} 0.0
+yamcs_instances_state{state="INITIALIZING",} 0.0
+yamcs_instances_state{state="OFFLINE",} 0.0
+yamcs_instances_state{state="RUNNING",} 1.0
+yamcs_instances_state{state="STOPPING",} 0.0
+# HELP yamcs_info Version info
+# TYPE yamcs_info gauge
+yamcs_info{version="4.10.10-SNAPSHOT",revision="f5386dfa6e04cb873af9be2f37f42bfb41ce76ee",server_id="mac.fqqb.be",yamcs_prometheus_version="1.0.0-SNAPSHOT",yamcs_tse_version="4.10.10-SNAPSHOT",yamcs_web_version="4.10.9",} 1.0
+# HELP jvm_info JVM version info
+# TYPE jvm_info gauge
+jvm_info{version="11.0.2+9",vendor="Oracle Corporation",runtime="OpenJDK Runtime Environment",} 1.0
