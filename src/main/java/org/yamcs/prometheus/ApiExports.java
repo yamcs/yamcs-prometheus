@@ -29,8 +29,8 @@ public class ApiExports extends Collector {
         List<MapperConfig> mappings = new ArrayList<>();
 
         Map<String, String> labels = new HashMap<>();
-        labels.put("service", "${0}");
-        labels.put("method", "${1}");
+        labels.put(Labels.SERVICE, "${0}");
+        labels.put(Labels.METHOD, "${1}");
 
         MapperConfig mapping = new MapperConfig();
         mapping.setMatch("yamcs.api.requests.total.*.*");

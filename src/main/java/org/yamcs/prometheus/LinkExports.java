@@ -13,7 +13,7 @@ import io.prometheus.client.CounterMetricFamily;
 
 public class LinkExports extends Collector {
 
-    private static final List<String> LINK_LABELS = Arrays.asList("instance", "link");
+    private static final List<String> LINK_LABELS = Arrays.asList(Labels.INSTANCE, Labels.LINK);
 
     @Override
     public List<MetricFamilySamples> collect() {

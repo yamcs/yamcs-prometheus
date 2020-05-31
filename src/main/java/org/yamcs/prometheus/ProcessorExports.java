@@ -17,7 +17,7 @@ import io.prometheus.client.CounterMetricFamily;
 
 public class ProcessorExports extends Collector {
 
-    private static final List<String> PACKET_LABELS = Arrays.asList("instance", "processor", "packet");
+    private static final List<String> PACKET_LABELS = Arrays.asList(Labels.INSTANCE, Labels.PROCESSOR, Labels.PACKET);
 
     @Override
     public List<MetricFamilySamples> collect() {
