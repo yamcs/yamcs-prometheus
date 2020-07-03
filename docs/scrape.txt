@@ -497,7 +497,7 @@ yamcs_instances_state{state="RUNNING",} 1.0
 yamcs_instances_state{state="STOPPING",} 0.0
 # HELP yamcs_info Version info
 # TYPE yamcs_info gauge
-yamcs_info{version="4.10.10-SNAPSHOT",revision="f5386dfa6e04cb873af9be2f37f42bfb41ce76ee",server_id="mac.fqqb.be",yamcs_prometheus_version="1.0.0-SNAPSHOT",yamcs_tse_version="4.10.10-SNAPSHOT",yamcs_web_version="4.10.9",} 1.0
+yamcs_info{version="5.0.0",revision="f5386dfa6e04cb873af9be2f37f42bfb41ce76ee",server_id="mac.fqqb.be",yamcs_prometheus_version="1.0.0",yamcs_tse_version="5.0.0",yamcs_web_version="5.0.0",} 1.0
 # HELP jvm_info JVM version info
 # TYPE jvm_info gauge
 jvm_info{version="11.0.2+9",vendor="Oracle Corporation",runtime="OpenJDK Runtime Environment",} 1.0

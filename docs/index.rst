@@ -32,7 +32,7 @@ Add the following dependency to your Yamcs Maven project:
    <dependency>
      <groupId>org.yamcs</groupId>
      <artifactId>yamcs-prometheus</artifactId>
-     <version>1.0.0-SNAPSHOT</version>
+     <version>1.0.0</version>
    </dependency>
 
 
