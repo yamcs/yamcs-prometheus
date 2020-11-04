@@ -33,7 +33,6 @@ public class PrometheusPlugin implements Plugin {
     public static final SystemPrivilege PRIV_GET_METRICS = new SystemPrivilege("Prometheus.GetMetrics");
 
     private static final Log log = new Log(PrometheusPlugin.class);
-    private static final String CONFIG_SECTION = "yamcs-prometheus";
 
     private YamcsServer yamcs;
 
@@ -42,19 +41,11 @@ public class PrometheusPlugin implements Plugin {
 
         Spec spec = new Spec();
         spec.addOption("jvm", OptionType.BOOLEAN).withDefault(Boolean.TRUE);
-
-        yamcs.addConfigurationSection(CONFIG_SECTION, spec);
     }
 
     @Override
-    public void onLoad() throws PluginException {
+    public void onLoad(YConfiguration config) throws PluginException {
         yamcs.getSecurityStore().addSystemPrivilege(PRIV_GET_METRICS);
-
-        YConfiguration yamcsConfig = yamcs.getConfig();
-        YConfiguration config = YConfiguration.emptyConfig();
-        if (yamcsConfig.containsKey(CONFIG_SECTION)) {
-            config = yamcsConfig.getConfig(CONFIG_SECTION);
-        }
 
         CollectorRegistry registry = CollectorRegistry.defaultRegistry;
         if (config.getBoolean("jvm")) {

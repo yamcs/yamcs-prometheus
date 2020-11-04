@@ -38,7 +38,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <yamcsVersion>5.1.1</yamcsVersion>
+    <yamcsVersion>5.2.0</yamcsVersion>
     <prometheusClientVersion>0.9.0</prometheusClientVersion>
   </properties>
 
@@ -120,7 +120,7 @@
               <id>yamcs</id>
               <groupId>org.yamcs</groupId>
               <artifactId>yamcs-protoc-plugin</artifactId>
-              <version>5.1.0</version>
+              <version>5.2.3</version>
               <mainClass>org.yamcs.protoc.ServiceGenerator</mainClass>
             </protocPlugin>
           </protocPlugins>
@@ -159,7 +159,7 @@
       <plugin>
         <groupId>org.yamcs</groupId>
         <artifactId>yamcs-maven-plugin</artifactId>
-        <version>1.2.4</version>
+        <version>1.2.5</version>
         <executions>
           <execution>
             <goals>
