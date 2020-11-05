@@ -1,0 +1,5 @@
+options:
+  jvm:
+    title: Include JVM metrics
+    type: BOOLEAN
+    default: true

@@ -6,8 +6,6 @@ import java.util.List;
 
 import org.yamcs.Plugin;
 import org.yamcs.PluginException;
-import org.yamcs.Spec;
-import org.yamcs.Spec.OptionType;
 import org.yamcs.YConfiguration;
 import org.yamcs.YamcsServer;
 import org.yamcs.http.Handler;
@@ -34,17 +32,9 @@ public class PrometheusPlugin implements Plugin {
 
     private static final Log log = new Log(PrometheusPlugin.class);
 
-    private YamcsServer yamcs;
-
-    public PrometheusPlugin() {
-        yamcs = YamcsServer.getServer();
-
-        Spec spec = new Spec();
-        spec.addOption("jvm", OptionType.BOOLEAN).withDefault(Boolean.TRUE);
-    }
-
     @Override
     public void onLoad(YConfiguration config) throws PluginException {
+        YamcsServer yamcs = YamcsServer.getServer();
         yamcs.getSecurityStore().addSystemPrivilege(PRIV_GET_METRICS);
 
         CollectorRegistry registry = CollectorRegistry.defaultRegistry;
