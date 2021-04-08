@@ -52,6 +52,13 @@
       <groupId>io.prometheus</groupId>
       <artifactId>simpleclient_dropwizard</artifactId>
       <version>${prometheusClientVersion}</version>
+      <exclusions>
+        <!-- Already provided by Yamcs -->
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>io.prometheus</groupId>
@@ -62,12 +69,13 @@
       <groupId>org.yamcs</groupId>
       <artifactId>yamcs-core</artifactId>
       <version>${yamcsVersion}</version>
+      <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>org.yamcs</groupId>
       <artifactId>yamcs-web</artifactId>
       <version>${yamcsVersion}</version>
+      <scope>provided</scope>
       <optional>true</optional>
     </dependency>
   </dependencies>
@@ -83,7 +91,8 @@
     </resources>
 
     <plugins>
-      <plugin> <!-- Sets the 'os.detected.classifier' maven property (needed to fetch native protoc) -->
+      <plugin>
+        <!-- Sets the 'os.detected.classifier' maven property (needed to fetch native protoc) -->
         <groupId>kr.motd.maven</groupId>
         <artifactId>os-maven-plugin</artifactId>
         <version>1.6.2</version>
@@ -96,7 +105,8 @@
           </execution>
         </executions>
       </plugin>
-      <plugin> <!-- Generate Protobuf java sources -->
+      <plugin>
+        <!-- Generate Protobuf java sources -->
         <groupId>org.xolstice.maven.plugins</groupId>
         <artifactId>protobuf-maven-plugin</artifactId>
         <version>0.6.1</version>
@@ -159,12 +169,26 @@
       <plugin>
         <groupId>org.yamcs</groupId>
         <artifactId>yamcs-maven-plugin</artifactId>
-        <version>1.2.5</version>
+        <version>1.2.6</version>
         <executions>
           <execution>
             <goals>
               <goal>detect</goal>
             </goals>
+          </execution>
+          <execution>
+            <id>bundle-extension</id>
+            <phase>package</phase>
+            <goals>
+              <goal>bundle</goal>
+            </goals>
+            <configuration>
+              <includeDefaultWrappers>false</includeDefaultWrappers>
+              <includeConfiguration>false</includeConfiguration>
+              <formats>
+                <format>tar.gz</format>
+              </formats>
+            </configuration>
           </execution>
         </executions>
       </plugin>
