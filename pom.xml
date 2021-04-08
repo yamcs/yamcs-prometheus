@@ -58,6 +58,11 @@
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-api</artifactId>
         </exclusion>
+        <!-- Already provided by Yamcs -->
+        <exclusion>
+          <groupId>io.dropwizard.metrics</groupId>
+          <artifactId>metrics-core</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
