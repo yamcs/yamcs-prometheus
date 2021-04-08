@@ -4,7 +4,7 @@
 
   <groupId>org.yamcs</groupId>
   <artifactId>yamcs-prometheus</artifactId>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.4</version>
   <packaging>jar</packaging>
 
   <name>Expose metrics to Prometheus</name>
@@ -65,6 +65,7 @@
       <artifactId>simpleclient_hotspot</artifactId>
       <version>${prometheusClientVersion}</version>
     </dependency>
+
     <dependency>
       <groupId>org.yamcs</groupId>
       <artifactId>yamcs-core</artifactId>
@@ -241,6 +242,9 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
+                <configuration>
+                  <keyname>yamcs@spaceapplications.com</keyname>
+                </configuration>
               </execution>
             </executions>
           </plugin>
