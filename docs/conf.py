@@ -41,7 +41,7 @@ latex_elements = {
 latex_documents = [
     (
         "index",
-        "yamcs-prometheus-plugin.tex",
+        "yamcs-prometheus.tex",
         "Yamcs: Prometheus Plugin",
         "Space Applications Services",
         "manual",
