@@ -4,7 +4,7 @@
 
   <groupId>org.yamcs</groupId>
   <artifactId>yamcs-prometheus</artifactId>
-  <version>1.0.5-SNAPSHOT</version>
+  <version>1.0.5</version>
   <packaging>jar</packaging>
 
   <name>Expose metrics to Prometheus</name>
@@ -175,7 +175,7 @@
       <plugin>
         <groupId>org.yamcs</groupId>
         <artifactId>yamcs-maven-plugin</artifactId>
-        <version>1.2.6</version>
+        <version>1.2.7</version>
         <executions>
           <execution>
             <goals>
@@ -277,9 +277,6 @@
             </executions>
             <configuration>
               <source>8</source>
-              <additionalJOptions>
-                <additionalJOption>--no-module-directories</additionalJOption>
-              </additionalJOptions>
             </configuration>
           </plugin>
           <plugin>

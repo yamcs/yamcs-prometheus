@@ -3,7 +3,7 @@ package org.yamcs.prometheus;
 public interface Labels {
 
     /**
-     * The name of a Yamcs instance. This uses the label <tt>yamcs_instance</tt> instead of <tt>instance</tt> because
+     * The name of a Yamcs instance. This uses the label {@code yamcs_instance} instead of {@code instance} because
      * the latter is automatically added by Prometheus with/ a different meaning.
      */
     String INSTANCE = "yamcs_instance";
