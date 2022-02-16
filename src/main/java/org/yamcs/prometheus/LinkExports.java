@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.yamcs.YamcsServer;
 import org.yamcs.YamcsServerInstance;
-import org.yamcs.protobuf.LinkInfo;
+import org.yamcs.protobuf.links.LinkInfo;
 
 import io.prometheus.client.Collector;
 import io.prometheus.client.CounterMetricFamily;

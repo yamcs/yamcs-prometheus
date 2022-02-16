@@ -2,13 +2,13 @@ package org.yamcs.prometheus;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 import org.yamcs.Plugin;
 import org.yamcs.PluginException;
 import org.yamcs.YConfiguration;
 import org.yamcs.YamcsServer;
 import org.yamcs.http.Handler;
+import org.yamcs.http.HandlerContext;
 import org.yamcs.http.HttpRequestHandler;
 import org.yamcs.http.HttpServer;
 import org.yamcs.logging.Log;
@@ -46,13 +46,12 @@ public class PrometheusPlugin implements Plugin {
         new LinkExports().register(registry);
         new ProcessorExports().register(registry);
 
-        List<HttpServer> httpServers = yamcs.getGlobalServices(HttpServer.class);
-        if (httpServers.isEmpty()) {
+        HttpServer httpServer = yamcs.getGlobalService(HttpServer.class);
+        if (httpServer == null) {
             log.warn("Can't mount metrics endpoint. Yamcs does not appear to be running an HTTP Server.");
             return;
         }
 
-        HttpServer httpServer = httpServers.get(0);
         new ApiExports(httpServer.getMetricRegistry()).register(registry);
 
         try (InputStream in = getClass().getResourceAsStream("/yamcs-prometheus.protobin")) {
@@ -72,17 +71,20 @@ public class PrometheusPlugin implements Plugin {
     @Sharable
     private static final class RedirectHandler extends Handler {
         @Override
-        public void handle(ChannelHandlerContext ctx, FullHttpRequest req) {
+        public void handle(HandlerContext ctx) {
+            ChannelHandlerContext nettyCtx = ctx.getNettyChannelHandlerContext();
+            FullHttpRequest nettyRequest = ctx.getNettyFullHttpRequest();
+
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
                     HttpResponseStatus.TEMPORARY_REDIRECT);
-            QueryStringDecoder qs = new QueryStringDecoder(req.uri());
+            QueryStringDecoder qs = new QueryStringDecoder(nettyRequest.uri());
             String location = qs.rawPath().replaceFirst("metrics", "api/prometheus/metrics");
             String q = qs.rawQuery();
             if (!q.isEmpty()) {
                 location += "?" + q;
             }
             response.headers().add(HttpHeaderNames.LOCATION, location);
-            HttpRequestHandler.sendResponse(ctx, req, response);
+            HttpRequestHandler.sendResponse(nettyCtx, nettyRequest, response);
         }
     }
 }
