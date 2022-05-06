@@ -8,9 +8,9 @@ import org.yamcs.Processor;
 import org.yamcs.YamcsServer;
 import org.yamcs.YamcsServerInstance;
 import org.yamcs.management.ManagementGpbHelper;
+import org.yamcs.mdb.ProcessingStatistics;
 import org.yamcs.protobuf.Statistics;
 import org.yamcs.protobuf.TmStatistics;
-import org.yamcs.xtceproc.ProcessingStatistics;
 
 import io.prometheus.client.Collector;
 import io.prometheus.client.CounterMetricFamily;
