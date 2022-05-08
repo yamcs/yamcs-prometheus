@@ -135,14 +135,13 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <release>11</release>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>3.4.0</version>
         <configuration>
           <author>false</author>
           <breakiterator>true</breakiterator>
@@ -215,25 +214,6 @@
 
   <profiles>
     <profile>
-      <id>java8-compatibility</id>
-      <activation>
-        <jdk>[9,)</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                <release>8</release>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-    <profile>
       <id>release</id>
       <build>
         <plugins>
@@ -277,7 +257,7 @@
               </execution>
             </executions>
             <configuration>
-              <source>8</source>
+              <release>11</release>
             </configuration>
           </plugin>
           <plugin>
