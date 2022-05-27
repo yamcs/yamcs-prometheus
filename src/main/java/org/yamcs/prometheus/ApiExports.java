@@ -56,7 +56,7 @@ public class ApiExports extends Collector {
 
             Sample sample = sampleBuilder.createSample(dropwizardName, "", new ArrayList<String>(),
                     new ArrayList<String>(),
-                    new Long(counter.getCount()).doubleValue());
+                    Long.valueOf(counter.getCount()).doubleValue());
 
             addToMap(samplesMap, new MetricFamilySamples(sample.name, Type.COUNTER,
                     getHelpMessage(dropwizardName),

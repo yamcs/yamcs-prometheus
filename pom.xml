@@ -38,7 +38,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <yamcsVersion>5.6.3-SNAPSHOT</yamcsVersion>
+    <yamcsVersion>5.7.0-SNAPSHOT</yamcsVersion>
     <prometheusClientVersion>0.15.0</prometheusClientVersion>
   </properties>
 
@@ -140,9 +140,22 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.2</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Automatic-Module-Name>org.yamcs.prometheus</Automatic-Module-Name>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.4.0</version>
         <configuration>
+          <release>11</release>
           <author>false</author>
           <breakiterator>true</breakiterator>
           <additionalOptions>
