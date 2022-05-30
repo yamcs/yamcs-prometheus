@@ -4,7 +4,7 @@
 
   <groupId>org.yamcs</groupId>
   <artifactId>yamcs-prometheus</artifactId>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.2.0</version>
   <packaging>jar</packaging>
 
   <name>Expose metrics to Prometheus</name>
@@ -38,7 +38,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <yamcsVersion>5.7.0-SNAPSHOT</yamcsVersion>
+    <yamcsVersion>5.7.0</yamcsVersion>
     <prometheusClientVersion>0.15.0</prometheusClientVersion>
   </properties>
 
@@ -158,6 +158,10 @@
           <release>11</release>
           <author>false</author>
           <breakiterator>true</breakiterator>
+          <links>
+            <link>https://docs.yamcs.org/javadoc/yamcs/latest/</link>
+            <link>https://prometheus.github.io/client_java/</link>
+          </links>
           <additionalOptions>
             <additionalOption>-Xdoclint:none</additionalOption>
             <additionalOption>-Xdoclint:html</additionalOption>
@@ -170,7 +174,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
+        <version>3.2.0</version>
       </plugin>
       <plugin>
         <groupId>org.yamcs</groupId>
@@ -250,7 +254,7 @@
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
+            <version>1.6.13</version>
             <extensions>true</extensions>
             <configuration>
               <serverId>ossrh</serverId>
@@ -269,9 +273,6 @@
                 </goals>
               </execution>
             </executions>
-            <configuration>
-              <release>11</release>
-            </configuration>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
