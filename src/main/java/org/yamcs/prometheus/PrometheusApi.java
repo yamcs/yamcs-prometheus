@@ -1,10 +1,7 @@
 package org.yamcs.prometheus;
 
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.function.Predicate;
 
 import org.yamcs.api.HttpBody;
 import org.yamcs.api.Observer;
@@ -13,10 +10,10 @@ import org.yamcs.prometheus.api.AbstractPrometheusApi;
 import org.yamcs.prometheus.api.GetMetricsRequest;
 
 import com.google.protobuf.ByteString;
-import com.google.protobuf.ByteString.Output;
 
-import io.prometheus.client.CollectorRegistry;
-import io.prometheus.client.exporter.common.TextFormat;
+import io.prometheus.metrics.expositionformats.ExpositionFormats;
+import io.prometheus.metrics.model.registry.MetricNameFilter;
+import io.prometheus.metrics.model.registry.PrometheusRegistry;
 
 /**
  * Responds to HTTP requests with current metrics in the text-based Prometheus exposition format v0.0.4
@@ -25,24 +22,32 @@ import io.prometheus.client.exporter.common.TextFormat;
  */
 public class PrometheusApi extends AbstractPrometheusApi<Context> {
 
-    private CollectorRegistry registry;
+    private PrometheusRegistry registry;
+    private ExpositionFormats formats;
 
-    public PrometheusApi(CollectorRegistry registry) {
+    public PrometheusApi(PrometheusRegistry registry) {
         this.registry = registry;
+        formats = ExpositionFormats.init();
     }
 
     @Override
     public void getMetrics(Context ctx, GetMetricsRequest request, Observer<HttpBody> observer) {
         ctx.checkSystemPrivilege(PrometheusPlugin.PRIV_GET_METRICS);
 
-        Set<String> names = new HashSet<>(request.getNameList());
+        Predicate<String> filter = null;
+        if (!request.getNameList().isEmpty()) {
+            filter = MetricNameFilter.builder().nameMustBeEqualTo(request.getNameList()).build();
+        }
 
-        try (Output out = ByteString.newOutput(); Writer writer = new OutputStreamWriter(out)) {
-            TextFormat.write004(writer, registry.filteredMetricFamilySamples(names));
-            writer.close();
+        var metricSnapshots = registry.scrape(filter);
 
-            HttpBody body = HttpBody.newBuilder()
-                    .setContentType(TextFormat.CONTENT_TYPE_004)
+        var formatWriter = formats.getPrometheusTextFormatWriter();
+        try (var out = ByteString.newOutput()) {
+            formatWriter.write(out, metricSnapshots);
+            out.close();
+
+            var body = HttpBody.newBuilder()
+                    .setContentType(formatWriter.getContentType())
                     .setData(out.toByteString())
                     .build();
             observer.complete(body);

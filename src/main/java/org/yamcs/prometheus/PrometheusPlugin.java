@@ -1,7 +1,9 @@
 package org.yamcs.prometheus;
 
+import static io.netty.handler.codec.http.HttpResponseStatus.TEMPORARY_REDIRECT;
+import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
+
 import java.io.IOException;
-import java.io.InputStream;
 
 import org.yamcs.Plugin;
 import org.yamcs.PluginException;
@@ -15,16 +17,11 @@ import org.yamcs.logging.Log;
 import org.yamcs.security.SystemPrivilege;
 
 import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
-import io.netty.handler.codec.http.FullHttpRequest;
-import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpHeaderNames;
-import io.netty.handler.codec.http.HttpResponseStatus;
-import io.netty.handler.codec.http.HttpVersion;
 import io.netty.handler.codec.http.QueryStringDecoder;
-import io.prometheus.client.CollectorRegistry;
-import io.prometheus.client.hotspot.DefaultExports;
+import io.prometheus.metrics.instrumentation.jvm.JvmMetrics;
+import io.prometheus.metrics.model.registry.PrometheusRegistry;
 
 public class PrometheusPlugin implements Plugin {
 
@@ -34,30 +31,30 @@ public class PrometheusPlugin implements Plugin {
 
     @Override
     public void onLoad(YConfiguration config) throws PluginException {
-        YamcsServer yamcs = YamcsServer.getServer();
+        var yamcs = YamcsServer.getServer();
         yamcs.getSecurityStore().addSystemPrivilege(PRIV_GET_METRICS);
 
-        CollectorRegistry registry = CollectorRegistry.defaultRegistry;
-        if (config.getBoolean("jvm")) {
-            DefaultExports.register(registry);
-        }
-        new YamcsInfoExports().register(registry);
-        new InstancesExports().register(registry);
-        new LinkExports().register(registry);
-        new ProcessorExports().register(registry);
-
-        HttpServer httpServer = yamcs.getGlobalService(HttpServer.class);
+        var httpServer = yamcs.getGlobalService(HttpServer.class);
         if (httpServer == null) {
             log.warn("Can't mount metrics endpoint. Yamcs does not appear to be running an HTTP Server.");
             return;
         }
 
-        new ApiExports(httpServer.getMetricRegistry()).register(registry);
-
-        try (InputStream in = getClass().getResourceAsStream("/yamcs-prometheus.protobin")) {
+        try (var in = getClass().getResourceAsStream("/yamcs-prometheus.protobin")) {
             httpServer.getProtobufRegistry().importDefinitions(in);
         } catch (IOException e) {
             throw new PluginException(e);
+        }
+
+        var registry = PrometheusRegistry.defaultRegistry;
+        new YamcsInfoMetrics().register(registry);
+        new InstancesMetrics().register(registry);
+        new LinkMetrics().register(registry);
+        new ProcessorMetrics().register(registry);
+        new ApiMetrics(httpServer.getMetricRegistry()).register(registry);
+
+        if (config.getBoolean("jvm")) {
+            JvmMetrics.builder().register(registry);
         }
 
         httpServer.addApi(new PrometheusApi(registry));
@@ -72,14 +69,13 @@ public class PrometheusPlugin implements Plugin {
     private static final class RedirectHandler extends Handler {
         @Override
         public void handle(HandlerContext ctx) {
-            ChannelHandlerContext nettyCtx = ctx.getNettyChannelHandlerContext();
-            FullHttpRequest nettyRequest = ctx.getNettyFullHttpRequest();
+            var nettyCtx = ctx.getNettyChannelHandlerContext();
+            var nettyRequest = ctx.getNettyFullHttpRequest();
 
-            FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
-                    HttpResponseStatus.TEMPORARY_REDIRECT);
-            QueryStringDecoder qs = new QueryStringDecoder(nettyRequest.uri());
-            String location = qs.rawPath().replaceFirst("metrics", "api/prometheus/metrics");
-            String q = qs.rawQuery();
+            var response = new DefaultFullHttpResponse(HTTP_1_1, TEMPORARY_REDIRECT);
+            var qs = new QueryStringDecoder(nettyRequest.uri());
+            var location = qs.rawPath().replaceFirst("metrics", "api/prometheus/metrics");
+            var q = qs.rawQuery();
             if (!q.isEmpty()) {
                 location += "?" + q;
             }

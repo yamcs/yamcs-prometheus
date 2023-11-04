@@ -39,23 +39,23 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <yamcsVersion>5.7.12</yamcsVersion>
-    <prometheusClientVersion>0.16.0</prometheusClientVersion>
+    <prometheusClientVersion>1.0.0</prometheusClientVersion>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>io.prometheus</groupId>
-      <artifactId>simpleclient_common</artifactId>
+      <artifactId>prometheus-metrics-core</artifactId>
       <version>${prometheusClientVersion}</version>
     </dependency>
     <dependency>
       <groupId>io.prometheus</groupId>
-      <artifactId>simpleclient_dropwizard</artifactId>
+      <artifactId>prometheus-metrics-exposition-formats</artifactId>
       <version>${prometheusClientVersion}</version>
     </dependency>
     <dependency>
       <groupId>io.prometheus</groupId>
-      <artifactId>simpleclient_hotspot</artifactId>
+      <artifactId>prometheus-metrics-instrumentation-jvm</artifactId>
       <version>${prometheusClientVersion}</version>
     </dependency>
 
