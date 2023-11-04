@@ -3,6 +3,9 @@ package org.yamcs.prometheus;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import org.yamcs.YamcsServer;
+import org.yamcs.http.HttpServer;
+
 import com.codahale.metrics.Counter;
 import com.codahale.metrics.MetricFilter;
 import com.codahale.metrics.MetricRegistry;
@@ -19,8 +22,9 @@ public class ApiMetrics {
     private MetricRegistry metricRegistry;
     private ConcurrentMap<String, String[]> labelsForMetric = new ConcurrentHashMap<>();
 
-    public ApiMetrics(MetricRegistry metricRegistry) {
-        this.metricRegistry = metricRegistry;
+    public ApiMetrics() {
+        var httpServer = YamcsServer.getServer().getGlobalService(HttpServer.class);
+        metricRegistry = httpServer.getMetricRegistry();
     }
 
     public void register(PrometheusRegistry registry) {

@@ -1,5 +1,6 @@
 package org.yamcs.prometheus;
 
+import static io.netty.handler.codec.http.HttpHeaderNames.LOCATION;
 import static io.netty.handler.codec.http.HttpResponseStatus.TEMPORARY_REDIRECT;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
@@ -18,7 +19,6 @@ import org.yamcs.security.SystemPrivilege;
 
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
-import io.netty.handler.codec.http.HttpHeaderNames;
 import io.netty.handler.codec.http.QueryStringDecoder;
 import io.prometheus.metrics.instrumentation.jvm.JvmMetrics;
 import io.prometheus.metrics.model.registry.PrometheusRegistry;
@@ -51,7 +51,8 @@ public class PrometheusPlugin implements Plugin {
         new InstancesMetrics().register(registry);
         new LinkMetrics().register(registry);
         new ProcessorMetrics().register(registry);
-        new ApiMetrics(httpServer.getMetricRegistry()).register(registry);
+        new HttpMetrics().register(registry);
+        new ApiMetrics().register(registry);
 
         if (config.getBoolean("jvm")) {
             JvmMetrics.builder().register(registry);
@@ -61,7 +62,7 @@ public class PrometheusPlugin implements Plugin {
 
         // Prometheus by default expects a /metrics path.
         // Redirect it to /api/prometheus/metrics for convenience
-        Handler redirectHandler = new RedirectHandler();
+        var redirectHandler = new RedirectHandler();
         httpServer.addHandler("metrics", () -> redirectHandler);
     }
 
@@ -79,7 +80,7 @@ public class PrometheusPlugin implements Plugin {
             if (!q.isEmpty()) {
                 location += "?" + q;
             }
-            response.headers().add(HttpHeaderNames.LOCATION, location);
+            response.headers().add(LOCATION, location);
             HttpRequestHandler.sendResponse(nettyCtx, nettyRequest, response);
         }
     }

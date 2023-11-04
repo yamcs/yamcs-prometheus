@@ -12,7 +12,7 @@ public class ProcessorMetrics {
 
     public void register(PrometheusRegistry registry) {
         CounterWithCallback.builder()
-                .name("yamcs_processor_receive_packets_total")
+                .name("yamcs_processor_receive_packets")
                 .help("Processed packets since Yamcs has started")
                 .labelNames(PACKET_LABELS)
                 .callback(cb -> {
