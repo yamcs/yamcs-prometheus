@@ -6,6 +6,7 @@ import org.yamcs.http.HttpServer;
 import io.prometheus.metrics.core.metrics.CounterWithCallback;
 import io.prometheus.metrics.core.metrics.GaugeWithCallback;
 import io.prometheus.metrics.model.registry.PrometheusRegistry;
+import io.prometheus.metrics.model.snapshots.Unit;
 
 public class HttpMetrics {
 
@@ -17,7 +18,8 @@ public class HttpMetrics {
 
     public void register(PrometheusRegistry registry) {
         CounterWithCallback.builder()
-                .name("yamcs_http_receive_bytes")
+                .name("yamcs_http_receive")
+                .unit(Unit.BYTES)
                 .callback(cb -> {
                     var globalTrafficHandler = httpServer.getGlobalTrafficShapingHandler();
                     if (globalTrafficHandler != null) {
@@ -28,7 +30,8 @@ public class HttpMetrics {
                 .register(registry);
 
         CounterWithCallback.builder()
-                .name("yamcs_http_transmit_bytes")
+                .name("yamcs_http_transmit")
+                .unit(Unit.BYTES)
                 .callback(cb -> {
                     var globalTrafficHandler = httpServer.getGlobalTrafficShapingHandler();
                     if (globalTrafficHandler != null) {
