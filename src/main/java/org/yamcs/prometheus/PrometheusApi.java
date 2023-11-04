@@ -1,5 +1,8 @@
 package org.yamcs.prometheus;
 
+import static io.netty.handler.codec.http.HttpHeaderNames.ACCEPT;
+import static org.yamcs.http.HttpRequestHandler.CTX_HTTP_REQUEST;
+
 import java.io.IOException;
 import java.util.function.Predicate;
 
@@ -16,9 +19,7 @@ import io.prometheus.metrics.model.registry.MetricNameFilter;
 import io.prometheus.metrics.model.registry.PrometheusRegistry;
 
 /**
- * Responds to HTTP requests with current metrics in the text-based Prometheus exposition format v0.0.4
- * 
- * @see https://prometheus.io/docs/instrumenting/exposition_formats/
+ * Responds to HTTP requests with current metrics in any of the Prometheus exposition formats.
  */
 public class PrometheusApi extends AbstractPrometheusApi<Context> {
 
@@ -41,7 +42,10 @@ public class PrometheusApi extends AbstractPrometheusApi<Context> {
 
         var metricSnapshots = registry.scrape(filter);
 
-        var formatWriter = formats.getPrometheusTextFormatWriter();
+        var httpRequest = ctx.nettyContext.channel().attr(CTX_HTTP_REQUEST).get();
+        var acceptHeader = httpRequest.headers().get(ACCEPT);
+        var formatWriter = formats.findWriter(acceptHeader);
+
         try (var out = ByteString.newOutput()) {
             formatWriter.write(out, metricSnapshots);
             out.close();
