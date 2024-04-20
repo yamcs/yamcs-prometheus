@@ -10,8 +10,8 @@ import org.yamcs.Plugin;
 import org.yamcs.PluginException;
 import org.yamcs.YConfiguration;
 import org.yamcs.YamcsServer;
-import org.yamcs.http.Handler;
 import org.yamcs.http.HandlerContext;
+import org.yamcs.http.HttpHandler;
 import org.yamcs.http.HttpRequestHandler;
 import org.yamcs.http.HttpServer;
 import org.yamcs.logging.Log;
@@ -63,11 +63,17 @@ public class PrometheusPlugin implements Plugin {
         // Prometheus by default expects a /metrics path.
         // Redirect it to /api/prometheus/metrics for convenience
         var redirectHandler = new RedirectHandler();
-        httpServer.addHandler("metrics", () -> redirectHandler);
+        httpServer.addRoute("metrics", () -> redirectHandler);
     }
 
     @Sharable
-    private static final class RedirectHandler extends Handler {
+    private static final class RedirectHandler extends HttpHandler {
+
+        @Override
+        public boolean requireAuth() {
+            return true;
+        }
+
         @Override
         public void handle(HandlerContext ctx) {
             var nettyCtx = ctx.getNettyChannelHandlerContext();
