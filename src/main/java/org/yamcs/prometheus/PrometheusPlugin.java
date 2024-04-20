@@ -1,9 +1,5 @@
 package org.yamcs.prometheus;
 
-import static io.netty.handler.codec.http.HttpHeaderNames.LOCATION;
-import static io.netty.handler.codec.http.HttpResponseStatus.TEMPORARY_REDIRECT;
-import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
-
 import java.io.IOException;
 
 import org.yamcs.Plugin;
@@ -12,13 +8,11 @@ import org.yamcs.YConfiguration;
 import org.yamcs.YamcsServer;
 import org.yamcs.http.HandlerContext;
 import org.yamcs.http.HttpHandler;
-import org.yamcs.http.HttpRequestHandler;
 import org.yamcs.http.HttpServer;
 import org.yamcs.logging.Log;
 import org.yamcs.security.SystemPrivilege;
 
 import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.QueryStringDecoder;
 import io.prometheus.metrics.instrumentation.jvm.JvmMetrics;
 import io.prometheus.metrics.model.registry.PrometheusRegistry;
@@ -76,18 +70,14 @@ public class PrometheusPlugin implements Plugin {
 
         @Override
         public void handle(HandlerContext ctx) {
-            var nettyCtx = ctx.getNettyChannelHandlerContext();
-            var nettyRequest = ctx.getNettyFullHttpRequest();
-
-            var response = new DefaultFullHttpResponse(HTTP_1_1, TEMPORARY_REDIRECT);
+            var nettyRequest = ctx.getNettyHttpRequest();
             var qs = new QueryStringDecoder(nettyRequest.uri());
             var location = qs.rawPath().replaceFirst("metrics", "api/prometheus/metrics");
             var q = qs.rawQuery();
             if (!q.isEmpty()) {
                 location += "?" + q;
             }
-            response.headers().add(LOCATION, location);
-            HttpRequestHandler.sendResponse(nettyCtx, nettyRequest, response);
+            ctx.sendRedirect(location);
         }
     }
 }
