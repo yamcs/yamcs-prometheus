@@ -4,7 +4,7 @@
 
   <groupId>org.yamcs</groupId>
   <artifactId>yamcs-prometheus</artifactId>
-  <version>1.2.3-SNAPSHOT</version>
+  <version>1.3.0</version>
   <packaging>jar</packaging>
 
   <name>Expose metrics to Prometheus</name>
@@ -160,7 +160,7 @@
           <breakiterator>true</breakiterator>
           <links>
             <link>https://docs.yamcs.org/javadoc/yamcs/latest/</link>
-            <link>https://prometheus.github.io/client_java/</link>
+            <link>https://prometheus.github.io/client_java/api/</link>
           </links>
           <additionalOptions>
             <additionalOption>-Xdoclint:none</additionalOption>
