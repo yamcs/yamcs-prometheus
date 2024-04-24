@@ -643,8 +643,8 @@ yamcs_api_requests_total{method="UploadObject",service="BucketsApi"} 0.0
 yamcs_api_requests_total{method="WriteRows",service="TableApi"} 0.0
 # TYPE yamcs_http_connections gauge
 yamcs_http_connections 1.0
-# TYPE yamcs_http_receive_bytesz_bytes_total counter
-yamcs_http_receive_bytesz_bytes_total 1653.0
+# TYPE yamcs_http_receive_bytes_total counter
+yamcs_http_receive_bytes_total 1653.0
 # TYPE yamcs_http_transmit_bytes_total counter
 yamcs_http_transmit_bytes_total 94.0
 # HELP yamcs_instances_current Current amount of Yamcs instances
