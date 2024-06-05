@@ -86,51 +86,6 @@
 
     <plugins>
       <plugin>
-        <!-- Sets the 'os.detected.classifier' maven property (needed to fetch native protoc) -->
-        <groupId>kr.motd.maven</groupId>
-        <artifactId>os-maven-plugin</artifactId>
-        <version>1.7.1</version>
-        <executions>
-          <execution>
-            <phase>initialize</phase>
-            <goals>
-              <goal>detect</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <!-- Generate Protobuf java sources -->
-        <groupId>org.xolstice.maven.plugins</groupId>
-        <artifactId>protobuf-maven-plugin</artifactId>
-        <version>0.6.1</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <protocArtifact>com.google.protobuf:protoc:3.19.6:exe:${os.detected.classifier}</protocArtifact>
-          <checkStaleness>true</checkStaleness>
-          <writeDescriptorSet>true</writeDescriptorSet>
-          <descriptorSetFileName>${project.artifactId}.protobin</descriptorSetFileName>
-          <descriptorSetOutputDirectory>${project.build.directory}/generated-resources/protobuf</descriptorSetOutputDirectory>
-          <includeDependenciesInDescriptorSet>false</includeDependenciesInDescriptorSet>
-          <includeSourceInfoInDescriptorSet>true</includeSourceInfoInDescriptorSet>
-          <protocPlugins>
-            <protocPlugin>
-              <id>yamcs</id>
-              <groupId>org.yamcs</groupId>
-              <artifactId>yamcs-protoc-plugin</artifactId>
-              <version>5.3.1</version>
-              <mainClass>org.yamcs.protoc.ServiceGenerator</mainClass>
-            </protocPlugin>
-          </protocPlugins>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
@@ -179,12 +134,20 @@
       <plugin>
         <groupId>org.yamcs</groupId>
         <artifactId>yamcs-maven-plugin</artifactId>
-        <version>1.2.12</version>
+        <version>1.3.0</version>
         <executions>
           <execution>
             <goals>
+              <goal>protoc</goal>
               <goal>detect</goal>
             </goals>
+            <configuration>
+              <writeDescriptorSet>true</writeDescriptorSet>
+              <descriptorSetFileName>${project.artifactId}.protobin</descriptorSetFileName>
+              <descriptorSetOutputDirectory>${project.build.directory}/generated-resources/protobuf</descriptorSetOutputDirectory>
+              <includeDependenciesInDescriptorSet>false</includeDependenciesInDescriptorSet>
+              <includeSourceInfoInDescriptorSet>true</includeSourceInfoInDescriptorSet>
+            </configuration>
           </execution>
           <execution>
             <id>bundle-extension</id>
