@@ -17,7 +17,6 @@ release = version
 
 extensions = [
     "sphinx.ext.extlinks",
-    "sphinxcontrib.fulltoc",
     "sphinxcontrib.yamcs",
 ]
 
@@ -41,7 +40,7 @@ latex_elements = {
 latex_documents = [
     (
         "index",
-        "yamcs-prometheus.tex",
+        f"yamcs-prometheus-{release}.tex",
         "Yamcs: Prometheus Plugin",
         "Space Applications Services",
         "manual",
