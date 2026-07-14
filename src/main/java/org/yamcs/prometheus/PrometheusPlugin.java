@@ -1,11 +1,7 @@
 package org.yamcs.prometheus;
 
-import java.io.IOException;
-
-import org.yamcs.Plugin;
+import org.yamcs.AbstractPlugin;
 import org.yamcs.PluginException;
-import org.yamcs.YConfiguration;
-import org.yamcs.YamcsServer;
 import org.yamcs.http.HandlerContext;
 import org.yamcs.http.HttpHandler;
 import org.yamcs.http.HttpServer;
@@ -17,27 +13,20 @@ import io.netty.handler.codec.http.QueryStringDecoder;
 import io.prometheus.metrics.instrumentation.jvm.JvmMetrics;
 import io.prometheus.metrics.model.registry.PrometheusRegistry;
 
-public class PrometheusPlugin implements Plugin {
+public class PrometheusPlugin extends AbstractPlugin {
 
     public static final SystemPrivilege PRIV_GET_METRICS = new SystemPrivilege("Prometheus.GetMetrics");
 
     private static final Log log = new Log(PrometheusPlugin.class);
 
     @Override
-    public void onLoad(YConfiguration config) throws PluginException {
-        var yamcs = YamcsServer.getServer();
+    public void init() throws PluginException {
         yamcs.getSecurityStore().addSystemPrivilege(PRIV_GET_METRICS);
 
         var httpServer = yamcs.getGlobalService(HttpServer.class);
         if (httpServer == null) {
             log.warn("Can't mount metrics endpoint. Yamcs does not appear to be running an HTTP Server.");
             return;
-        }
-
-        try (var in = getClass().getResourceAsStream("/yamcs-prometheus.protobin")) {
-            httpServer.getProtobufRegistry().importDefinitions(in);
-        } catch (IOException e) {
-            throw new PluginException(e);
         }
 
         var registry = PrometheusRegistry.defaultRegistry;
