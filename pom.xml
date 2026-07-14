@@ -39,7 +39,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <yamcsVersion>5.8.8</yamcsVersion>
-    <prometheusClientVersion>1.2.1</prometheusClientVersion>
+    <prometheusClientVersion>1.8.0</prometheusClientVersion>
   </properties>
 
   <dependencies>
